@@ -55,7 +55,7 @@ public class MemberDto {
                 .emailAuthKey(member.getEmailAuthKey())
                 .resetPasswordKey(member.getResetPasswordKey())
                 .resetPasswordLimitDt(member.getResetPasswordLimitDt())
-                .adminYn(member.isAdminYn())
+                .adminYn(member.    isAdminYn())
                 .userStatus(member.getUserStatus())
                 
                 .zipcode(member.getZipcode())
