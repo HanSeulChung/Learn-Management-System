@@ -37,4 +37,6 @@ public interface BannerService {
      * 프론트 배너 정보
      */
     List<BannerDto> frontList(BannerDto parameter);
+
+
 }

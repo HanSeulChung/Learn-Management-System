@@ -3,24 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>메인 페이지</title>
-</head>
-<body>
-    <h1>메인 페이지 </h1>
-    <div th:replace="/fragments/layout.html :: fragment-body-menu"></div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https:/ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
+    <script>
+        $(document).ready(function(){
+            $(".bxslider").bxSlider(
+                {
+                    mode: 'horizontal',  // 슬라이드 모드 (수평)
+                    auto: false,          // 자동 슬라이드 여부
+                    pause: 3000,         // 슬라이드 간격 (3초)
+                    controls: true,     // 이전/다음 버튼 활성화
+                    pager: true         // 페이지 번호 표시 활성화
+                }
+            );
+        });
+    </script>
+    <style>
+        /* 이미지 크기 제한을 위한 CSS 스타일 */
+        .home__slider img {
+            max-width: 500px; /* 이미지 최대 너비 */
+            max-height: 450px; /* 이미지 최대 높이 */
+            width: auto;
+            height: auto;
+        }
+    </style>
+<!--    <script>-->
+<!--        // 이미지 슬라이드 초기화-->
+<!--        $(document).ready(function(){-->
+<!--            $('.bxslider').bxSlider({-->
+<!--                mode: 'horizontal',  // 슬라이드 모드 (수평)-->
+<!--                auto: true,          // 자동 슬라이드 여부-->
+<!--                pause: 3000,         // 슬라이드 간격 (3초)-->
+<!--                controls: false,     // 이전/다음 버튼 비활성화-->
+<!--                pager: false         // 페이지 번호 표시 비활성화-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 
-    <div class="home__slider">
-        <div class="bxslider">
-            <div>
-                <a href="#"><img src="files/2023/09/10/2ab8ba57ba9e432d8cc8ce82653acd25.png"></a>
+</head>
+<body>
+<div th:replace="/fragments/layout.html :: fragment-body-menu"></div>
+<h1>메인 페이지</h1>
+
+<div class="home__slider">
+    <div class="bxslider">
+        <th:block th:each="x : ${list}">
+            <div th:if="${x.usingYn}">
+                <div class="slide">
+                    <img th:src="${x.urlFilename}" alt="이미지"/>
+                </div>
             </div>
-        </div>
-
+        </th:block>
     </div>
-
-
+</div>
 </body>
 </html>

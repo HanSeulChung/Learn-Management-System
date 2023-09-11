@@ -167,7 +167,6 @@ public class AdminBannerController extends BaseController {
         return "redirect:/admin/banner/list.do";
     }
 
-
     @PostMapping("/admin/banner/delete.do")
     public String del(Model model, HttpServletRequest request
             , BannerInput parameter) {
