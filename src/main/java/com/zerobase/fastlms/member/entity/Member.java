@@ -34,7 +34,7 @@ public class Member implements MemberCode {
     private boolean adminYn;
     
     private String userStatus;//이용가능한상태, 정지상태
-    
+    private LocalDateTime lastLoginDt;
     
     private String zipcode;
     private String addr;

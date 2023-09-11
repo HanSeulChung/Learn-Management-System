@@ -24,7 +24,6 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -140,8 +139,6 @@ public class MemberServiceImpl implements MemberService {
         }
         
         return list;
-        
-        //return memberRepository.findAll();
     }
     
     @Override
@@ -299,6 +296,21 @@ public class MemberServiceImpl implements MemberService {
         }
 
         return new User(member.getUserId(), member.getPassword(), grantedAuthorities);
+    }
+
+    @Override
+    public void updateLastLoginDt(String userId, LocalDateTime lastLoginDt) {
+        Member member = memberRepository.findByUserId(userId).orElseThrow(
+                () -> new RuntimeException("해당되는 user가 없습니다.")
+        );
+
+        if (member != null) {
+            member.setLastLoginDt(lastLoginDt);
+            // 변경사항을 저장
+            memberRepository.save(member);
+        } else {
+            // 유저를 찾을 수 없을 경우 예외 처리 또는 로그 처리
+        }
     }
 }
 

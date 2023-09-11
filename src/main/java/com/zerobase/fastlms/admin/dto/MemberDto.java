@@ -21,7 +21,7 @@ public class MemberDto {
     String password;
     LocalDateTime regDt;
     LocalDateTime udtDt;
-    
+    LocalDateTime lastLoginDt;
     boolean emailAuthYn;
     LocalDateTime emailAuthDt;
     String emailAuthKey;
@@ -47,7 +47,6 @@ public class MemberDto {
                 .userId(member.getUserId())
                 .userName(member.getUserName())
                 .phone(member.getPhone())
-                //.password(member.getPassword())
                 .regDt(member.getRegDt())
                 .udtDt(member.getUdtDt())
                 .emailAuthYn(member.isEmailAuthYn())
@@ -55,13 +54,12 @@ public class MemberDto {
                 .emailAuthKey(member.getEmailAuthKey())
                 .resetPasswordKey(member.getResetPasswordKey())
                 .resetPasswordLimitDt(member.getResetPasswordLimitDt())
-                .adminYn(member.    isAdminYn())
+                .adminYn(member.isAdminYn())
                 .userStatus(member.getUserStatus())
-                
+                .lastLoginDt(member.getLastLoginDt())
                 .zipcode(member.getZipcode())
                 .addr(member.getAddr())
                 .addrDetail(member.getAddrDetail())
-                
                 .build();
     }
     

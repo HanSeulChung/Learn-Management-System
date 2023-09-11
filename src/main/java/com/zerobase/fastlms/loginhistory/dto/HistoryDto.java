@@ -18,7 +18,7 @@ import java.util.List;
 public class HistoryDto {
 
     Long id;
-
+    String userId;
     LocalDateTime loginDt;
     String clientIp;
     String userAgent;
@@ -39,6 +39,7 @@ public class HistoryDto {
     public static HistoryDto of(History history) {
         return HistoryDto.builder()
                 .id(history.getId())
+                .userId(history.getUserId())
                 .loginDt(history.getLoginDt())
                 .clientIp(history.getClientIp())
                 .userAgent(history.getUserAgent())

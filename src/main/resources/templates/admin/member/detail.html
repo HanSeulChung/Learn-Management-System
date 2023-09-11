@@ -11,7 +11,6 @@
         .detail table th, .detail table td {
             border:solid 1px #000;
         }
-
     </style>
 </head>
 <body>
@@ -120,19 +119,11 @@
 
                 </tr>
 
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        1
-                    </td>
+                <tr th:each="x, iterStat : ${historyList}" th:reverse="true">
+                    <td th:text="${iterStat.count}" th:align="center">1</td>
+                    <td th:text="${x.loginDt}">yyyy-MM-dd</td>
+                    <td th:text="${x.clientIp}">127.0.0.1</td>
+                    <td th:text="${x.userAgent}">CROME</td>
                 </tr>
 
             </table>

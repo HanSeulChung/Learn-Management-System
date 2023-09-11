@@ -21,7 +21,7 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
+    String userId;
     LocalDateTime loginDt;
     String clientIp;
     String userAgent;
